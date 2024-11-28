@@ -1,0 +1,199 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    color: #333;
+}
+
+header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #007bff;
+}
+
+footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transform: translateY(-30px);
+    animation: slideUp 0.3s forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button, .game-mode-btn, .start-btn, .reset-btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, .game-mode-btn:hover, .start-btn:hover, .reset-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.difficulty-selector {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Main Game Container */
+#gameContainer {
+    display: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 450px;
+}
+
+#scoreMessage {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Game Board Styling */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border: 3px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+.square:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.1);
+}
+
+.square.X {
+    color: #ff6b6b;
+}
+
+.square.O {
+    color: #4db8ff;
+}
+
+/* Winning Line Highlight */
+.square.winner {
+    background-color: #28a745 !important;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #28a745;
+    }
+    50% {
+        background-color: #1e7e34;
+    }
+    100% {
+        background-color: #28a745;
+    }
+}
+
+/* Reset Button */
+.reset-btn {
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #board {
+        grid-template-columns: repeat(3, 80px);
+    }
+
+    .square {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tic Tac Toe</h1>
+    </header>
+
+    <!-- Initial Game Mode Selection Modal -->
+    <div id="modeSelectionModal" class="modal">
+        <div class="modal-content">
+            <h2>Select Game Mode</h2>
+            <button id="playerVsPlayerBtn" class="game-mode-btn">Player vs Player</button>
+            <button id="playerVsAiBtn" class="game-mode-btn">Player vs AI</button>
+        </div>
+    </div>
+
+    <!-- Name Input Modal for Player vs Player -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Player Names</h2>
+            <input type="text" id="playerXName" placeholder="Enter Player X's Name" />
+            <input type="text" id="playerOName" placeholder="Enter Player O's Name" />
+            <button id="startGame" class="start-btn">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Difficulty Modal for Player vs AI -->
+    <div id="difficultyModal" class="modal">
+        <div class="modal-content">
+            <h2>Select AI Difficulty</h2>
+            <select id="difficultySelector" class="difficulty-selector">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button id="startGameAI" class="start-btn">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div id="gameContainer" class="game-container">
+        <div id="scoreMessage">Let's Play!</div>
+        <div id="board" class="board">
+            <!-- 9 squares for the game -->
+            <div class="square" data-index="0"></div>
+            <div class="square" data-index="1"></div>
+            <div class="square" data-index="2"></div>
+            <div class="square" data-index="3"></div>
+            <div class="square" data-index="4"></div>
+            <div class="square" data-index="5"></div>
+            <div class="square" data-index="6"></div>
+            <div class="square" data-index="7"></div>
+            <div class="square" data-index="8"></div>
+        </div>
+        <button id="reset" class="reset-btn">Reset Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
